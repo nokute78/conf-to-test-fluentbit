@@ -15,7 +15,7 @@ logger -P 15140 --server localhost --tcp test_message
 ## Example Output
 
 ```
-$ ~/git/fluent-bit/build/bin/fluent-bit -c main.conf 
+$ fluent-bit -c main.conf 
 Fluent Bit v1.8.0
 * Copyright (C) 2019-2021 The Fluent Bit Authors
 * Copyright (C) 2015-2018 Treasure Data
