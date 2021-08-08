@@ -1,0 +1,25 @@
+version: "3"
+services:
+    forwarder:
+        image: "fluent/fluent-bit:latest"
+        container_name: flb_forwarder
+        command: /fluent-bit/bin/fluent-bit -c /flb-conf/fluent-bit.conf
+        volumes:
+            -  ./forwarder:/flb-conf
+        hostname: flb_forwarder
+        networks:
+            - flb-network
+
+    receiver:
+        image: "fluent/fluent-bit:latest"
+        container_name: flb_receiver
+        command: /fluent-bit/bin/fluent-bit -c /flb-conf/fluent-bit.conf
+        volumes:
+            - ./receiver:/flb-conf
+        hostname: flb_receiver
+        networks:
+            - flb-network
+
+networks:
+    flb-network:
+        driver: bridge
